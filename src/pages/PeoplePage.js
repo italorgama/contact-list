@@ -5,6 +5,15 @@ import PeopleList from '../components/PeopleList';
 import axios from 'axios';
 
 export default class PeoplePage extends React.Component {
+  static navigationOptions = {
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: '#6ca2f7'
+    }
+  };
+  
+  
+  
   constructor(props){
     super(props);
     this.state = {
