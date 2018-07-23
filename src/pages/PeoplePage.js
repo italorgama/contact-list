@@ -1,18 +1,24 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import Header from '../components/Header';
+import { StyleSheet, Text, View } from 'react-native';
 import PeopleList from '../components/PeopleList';
 import axios from 'axios';
 
 export default class PeoplePage extends React.Component {
   static navigationOptions = {
-    title: 'Home',
+    title: 'Pessoas',
     headerStyle: {
-      backgroundColor: '#6ca2f7'
+      backgroundColor: '#6ca2f7',
+      borderBottomWidth: 1,
+      borderBottomColor: '#C5C5C5'
+    },
+    headerTitleStyle: {
+      color: 'white',
+      fontSize: 30,
+      textAlign: 'center',
+      flexGrow: 1
+            
     }
-  };
-  
-  
+  };  
   
   constructor(props){
     super(props);
@@ -33,10 +39,14 @@ export default class PeoplePage extends React.Component {
   }
 
   render() {
+    //this.props.navigation.navigate('PeopleDetail');
     return (
       <View>
-          <Header title="Pessoas!" />
-          <PeopleList peoples={this.state.peoples}/>       
+          <PeopleList 
+              peoples={this.state.peoples}
+              onPressItem={() => {
+                this.props.navigation.navigate('PeopleDetail');
+              }}/>       
       </View>
     );
   }

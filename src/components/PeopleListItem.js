@@ -3,10 +3,14 @@ import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import { capitalizeFirstLetter } from '../util/';
 
 const PeopleListItem = props => {
-	const { people } = props;
+	const { people, navigateToPeopleDetail } = props;
 	const { title, first, last } = people.name;
 	return(
-		<TouchableOpacity onPress={() => console.log('Clicou em mim!', first)}>
+		<TouchableOpacity onPress={() => {
+			console.log('Clicou em mim!', first);
+			navigateToPeopleDetail();			
+		}}>
+
 			<View style={styles.line}>
 				<Image style={styles.avatar} source={{uri: people.picture.thumbnail }} />
 				<Text style={styles.lineText}>
