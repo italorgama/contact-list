@@ -13,7 +13,6 @@ const MyNavigator = createStackNavigator(
   }  
 );
 
-
 export default class App extends React.Component {
   render() {
     return <MyNavigator />;
